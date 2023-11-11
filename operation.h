@@ -15,11 +15,13 @@ class Operation
 		unsigned char S_Value;
 		unsigned char T_value;
 		short int  ST_value;
-		char Register_load_memory(unsigned char R_Value, short int  ST_value);//load from memory to Register
-		char Register_load_value(unsigned char R_Value, short int  ST_value);//load the value to Register
-		char store_memory(unsigned char R_Value, short int  ST_value);//store what in the Register in the "RAM_Call"
-		char move_to_anter_Register(unsigned char S_Value, unsigned char T_value);// move the value in Register "S_Value" to T_value
-		char add_two_s_complement(unsigned char R_Value, unsigned char S_Value ,unsigned char T_value;)
+		void Register_load_memory(unsigned char R_Value, short int  ST_value);//load from memory to Register
+		void Register_load_value(unsigned char R_Value, short int  ST_value);//load the value to Register
+		void store_memory(unsigned char R_Value, short int  ST_value);//store what in the Register in the "RAM_Call"
+		void move_to_anter_Register(unsigned char S_Value, unsigned char T_value);// move the value in Register "S_Value" to T_value
+		void add_two_s_complement(unsigned char R_Value, unsigned char S_Value ,unsigned char T_value);
+
+		void setOrder(unsigned char order);
 	public:
 		Operation();
 		Operation(short int in_put);

@@ -24,9 +24,11 @@ class memory{
 
 	public:
 		memory();
-		memory(char type);
+		memory(char type_of_memory);
 		short int read_memory(short int call_address);
 		bool write_memory(short int call_address, short int value);
+		void get_command(short int address);
+		void write_command(short int address, char order, char R,short int ST);
 		~memory();
 };
 #endif

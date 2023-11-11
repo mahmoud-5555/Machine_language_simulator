@@ -5,10 +5,10 @@
 #include <string>
 #include "memory.h"
 #include "operation.h"
-class Machine
+class Machine : public memory
 {
 	memory memory_ram;
-	memory _reg('R');
+	memory reg('R');
 
 
     public:

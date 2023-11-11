@@ -5,16 +5,14 @@
 #include <string>
 #include "memory.h"
 #include "operation.h"
-class machine
+class Machine
 {
 	memory memory_ram;
 	memory _reg('R');
 
 
     public:
-    friend void operator>>(istream& is, string fileName);
-
-
-
+    void fileHandler(string fileName);
+    int hexToDecimal(string hexNumer);
 };
 #endif

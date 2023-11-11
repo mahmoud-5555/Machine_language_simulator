@@ -18,7 +18,7 @@ using namespace std;
 class memory{
 	private:
 		int size;
-		short int *memory_calls;
+		short int  *memory_calls;
 		vector <string> memory_errors;
 		static unsigned long long status;
 

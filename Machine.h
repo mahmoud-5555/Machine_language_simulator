@@ -1,6 +1,6 @@
 #ifndef MACHINE_H
 #define MACHINE_H
-
+#include <istream>
 #include "memory.h"
 #include "operation.h"
 class machine
@@ -10,9 +10,9 @@ class machine
 
 
     public:
-    istream & operator >> (istream &in,  fileName &c);
+    friend istream & operator >> (istream &in, string fileName);
 
 
 
-}
+};
 #endif

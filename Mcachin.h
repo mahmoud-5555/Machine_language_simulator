@@ -5,7 +5,8 @@
 class machine
 {
 	memory memory_ram;
-	memory _reg('R');
+	memory _reg((char)'R');
+	
 
-}
+};
 #endif

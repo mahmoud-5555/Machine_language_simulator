@@ -9,14 +9,14 @@ memory :: memory()
 	size = 256;
 	memory_calls = new short int[size];
 }
-memory:: memory(char type)
+memory:: memory(char type_of_memory)
 {
-	if(type == 'R')
+	if(type_of_memory == 'R')
 	{
 		size = 16;
 		memory_calls = new short int[size];
 	}
-	else if(type == 'M')
+	else if(type_of_memory == 'M')
 	{
 		size = 256;
 		memory_calls = new short int[size];

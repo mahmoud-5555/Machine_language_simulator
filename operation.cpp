@@ -7,7 +7,6 @@ Operation::Operation()
     R_Value = 0;
     S_Value = 0;
     T_value = 0;
-    ST_value = 0;
 }
 
 

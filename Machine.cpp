@@ -1,4 +1,4 @@
-#include <istream>
+#include <fstream>
 #include "Machine.h"
 #include "memory.h"
 #include "operation.h"

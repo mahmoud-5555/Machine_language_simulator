@@ -5,14 +5,12 @@
 #include <string>
 #include "memory.h"
 #include "operation.h"
-class Machine
+class Machine : public memory
 {
-	memory memory_ram;
-	memory _reg('R');
-
-
+    
     public:
     void fileHandler(string fileName);
     int hexToDecimal(string hexNumer);
+    memory ran('r');
 };
 #endif

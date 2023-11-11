@@ -59,9 +59,15 @@ bool memory::write_memory(short int call_address, short int value)
 /**
  * ~memory - destructer to free the located memory "in the heap" 
 */
-memory:: ~memory()
+memory::~memory()
 {
 	delete memory_calls;
+}
+void memory::write_command(short int address, char order, char R,short int ST)
+{
+	short int f_half = order * 16 + R;
+	memory_calls[address] = f_half;
+	memory_calls[address + 1] = ST;
 }
 
 

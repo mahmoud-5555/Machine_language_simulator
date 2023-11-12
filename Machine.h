@@ -11,6 +11,6 @@ class Machine : public memory
     public:
     void fileHandler(string fileName);
     int hexToDecimal(string hexNumer);
-    memory ran('r');
+    memory ran('R');
 };
 #endif

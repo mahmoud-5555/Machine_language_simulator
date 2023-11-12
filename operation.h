@@ -14,19 +14,20 @@ class Operation
 		unsigned char R_Value;
 		unsigned char S_Value;
 		unsigned char T_value;
-		short int  ST_value;
+
 		void Register_load_memory(unsigned char R_Value, short int  ST_value);//load from memory to Register
 		void Register_load_value(unsigned char R_Value, short int  ST_value);//load the value to Register
 		void store_memory(unsigned char R_Value, short int  ST_value);//store what in the Register in the "RAM_Call"
 		void move_to_anter_Register(unsigned char S_Value, unsigned char T_value);// move the value in Register "S_Value" to T_value
-		void add_two_s_complement(unsigned char R_Value, unsigned char S_Value ,unsigned char T_value);
-
-		void setOrder(unsigned char order);
+		void add_two_s_complement(unsigned char R_Value, unsigned char S_Value ,unsigned char T_value);// add 'S'and 'T' load in 'R'
+		void add_floating_point(unsigned char R_Value, unsigned char S_Value ,unsigned char T_value);// add 'S'and 'T' load in 'R'
+		void jumbls();
+		void exit_op();
 	public:
-		Operation();
-		Operation(short int in_put);
+		Operation(); 
+		Operation(int in_put);
 		char do_Operation();
 
 };
 
-#endif
+#endif 

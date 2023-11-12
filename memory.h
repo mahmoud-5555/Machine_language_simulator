@@ -4,6 +4,7 @@
 #include<iostream>
 #include<vector>
 #include<string>
+
 using namespace std;
 /**
  * class memory - class "data type to make the simulator of the memory"
@@ -27,7 +28,7 @@ class memory{
 		memory(char type_of_memory);
 		short int read_memory(short int call_address);
 		bool write_memory(short int call_address, short int value);
-		void get_command(short int address);
+		int get_command(short int address);//the order
 		void write_command(short int address, char order, char R,short int ST);
 		~memory();
 };

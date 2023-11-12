@@ -12,9 +12,5 @@ class Machine
     public:
     void fileHandler(string fileName);
     int hexToDecimal(string hexNumer);
-<<<<<<< HEAD
-    memory ran('R');
-=======
->>>>>>> refs/remotes/origin/main
 };
 #endif

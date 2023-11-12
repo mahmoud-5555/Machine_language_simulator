@@ -1,4 +1,4 @@
-#include "operation.h"
+#include "Operation.h"
 
 
 Operation::Operation()
@@ -30,9 +30,9 @@ void Operation::move_to_another_Register(unsigned char R_Value, short int  ST_va
 // int get_command(short int address);//the order
 // void write_command(short int address, char order, char R,short int ST);
 
-void Operation::add_two_s_complement(unsigned char R_Value, unsigned char S_Value ,unsigned char T_value, memory &ram) {
+void Operation::add_two_s_complement(unsigned char R_value, unsigned char S_value ,unsigned char T_value, memory &reg) {
 
-    unsigned char num1 = reg.read_memory(S_Value);
-    unsigned char num2 = reg.read_memory(T_Value);
+    unsigned char num1 = reg.read_memory(S_value);
+    unsigned char num2 = reg.read_memory(T_value);
     reg.write_memory(R_Value, num1 + num2);
 }

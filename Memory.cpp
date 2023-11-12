@@ -32,14 +32,14 @@ short int Memory::read_memory(short int call_address)
 	{
 		return (memory_cells[call_address]);
 	}
-	else
-		{
-			string error_status = to_string(status);
-			if(size == 256)
-				memory_errors.push_back("$ RAM : reading memory error status: " + error_status);
-			else
-				memory_errors.push_back("$ Rojester : reading memory error status: " + error_status);
-		}
+	// else
+	// 	{
+	// 		string error_status = to_string(status);
+	// 		if(size == 256)
+	// 			memory_errors.push_back("$ RAM : reading memory error status: " + error_status);
+	// 		else
+	// 			memory_errors.push_back("$ Rojester : reading memory error status: " + error_status);
+	// 	}
 }
 bool Memory::write_memory(short int call_address, short int value)
 {

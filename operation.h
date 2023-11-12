@@ -25,11 +25,12 @@ class Operation
 		void move_to_another_Register();// move the value in Register "S_Value" to T_value
 		void add_two_s_complement();// add 'S'and 'T' load in 'R'
 		int exit_op();
-		void jump(unsigned char R_value, short int ST_value);
-		void exit_op();
+		void jump();
 	public:
 		Operation();
 		Operation(int in_put, Memory *Ram,Memory *Reg);
+		Operation(Memory *Ram,Memory *Reg);
+		void set_Operation(int in_put);
 		int do_Operation();
 
 };

@@ -56,13 +56,11 @@ int Operation::exit_op() {
 
  
 //jump to the command
-/*
-void jump(unsigned char R_value, short int ST_value,short int the_itoretor_of_operarion,memory &reg)
+void Operation::jump()
 {
-    
+    if(reg->read_memory(0) == reg->read_memory(0))    
 }
-'''
-*/
+
 Operation::Operation(int in_put,Memory *Ram,Memory *Reg)
 {
     this->ram = Ram;
@@ -74,6 +72,19 @@ Operation::Operation(int in_put,Memory *Ram,Memory *Reg)
     this->T_Value = ((in_put << 12)>>12) & 0x000f;
 }
 
+void Operation::set_Operation(int in_put)
+{
+    this->order = (in_put >> 12) & 0x000f;
+    this->R_Value = ((in_put << 4)>>12) & 0x000f;
+    this->S_Value = ((in_put << 8)>>12) & 0x000f;
+    this->T_Value = ((in_put << 12)>>12) & 0x000f;
+}
+Operation::Operation(Memory *Ram,Memory *Reg)
+{
+    this->ram = Ram;
+    this->reg = Reg;
+}
+
 int Operation:: do_Operation()
 {
     switch (order)
@@ -82,31 +93,23 @@ int Operation:: do_Operation()
         Register_load_memory();
         break;
     case 2:
-        /* code */
+        Register_load_value();
         break;
     case 3:
-        /* code */
+        store_memory();
         break;
     case 4:
-        /* code */
+        move_to_another_Register();
         break;
     case 5:
-        /* code */
-        break;
-    case 6:
-        /* code */
+        add_two_s_complement();
         break;
     case 11:
-        /* code */
+        jump();
         break;
     case 12:
-        /* code */
-        break;
-    case 0:
-        /* code */
-        break;
-    
-    default:
+        return(1);// exit from the program
         break;
     }
+    return(0);
 }

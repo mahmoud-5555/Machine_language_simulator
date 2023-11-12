@@ -18,12 +18,12 @@ using namespace std;
 */
 class Memory{
 	private:
-		int size;
 		short int  *memory_cells;
 		vector <string> memory_errors;
 		static unsigned long long status;
 
 	public:
+		int size;
 		Memory();
 		Memory(char type_of_memory);
 		short int read_memory(short int call_address);
@@ -31,6 +31,7 @@ class Memory{
 		bool write_memory(short int call_address, short int value);
 		int get_command(short int address);//the order
 		void write_command(short int address, char order, char R,short int ST);
+		void clear_memory();
 		~Memory();
 };
 #endif

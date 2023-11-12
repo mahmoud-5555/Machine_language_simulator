@@ -83,4 +83,8 @@ int Memory::get_command(short int address){
 	return ((int) memory_cells[address] + (int) memory_cells[address + 1]);
 }
 
-
+void Memory ::clear_memory()
+{
+	for(int i = 0; i < size;i++)
+		memory_cells[i] = 0;
+}

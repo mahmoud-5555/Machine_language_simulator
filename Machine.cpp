@@ -59,8 +59,6 @@ void Machine::fileHandler(string fileName) {
 
 int Machine::hexToDecimal(string hexNumber) {
 
-
-
   // Check if the string starts with "0x" and remove it
     if (hexNumber.substr(0, 2) == "0x") {
         hexNumber = hexNumber.substr(2);
@@ -71,4 +69,19 @@ int Machine::hexToDecimal(string hexNumber) {
     return decimalNumber;
 
 
+}
+void Machine::excute_operation()
+{
+    for(int i = 1; i > ram->size;i+=2)
+    {
+        crrunt->set_Operation(ram->get_command(i));
+        if(crrunt->do_Operation())
+        {
+            delete ram;
+            delete reg;
+            delete crrunt;
+            exit(EXIT_SUCCESS);
+        }
+        
+    }
 }

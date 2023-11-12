@@ -1,11 +1,14 @@
 #include <fstream>
 #include "Machine.h"
-#include "memory.h"
-#include "operation.h"
+#include "Memory.h"
+#include "Operation.h"
 
 
 
 void Machine::fileHandler(string fileName) {
+
+    // memory ram;
+    // memory reg('R');
 
     fileName.append(".txt");
     ifstream file(fileName);
@@ -14,7 +17,9 @@ void Machine::fileHandler(string fileName) {
     int lineNumber = 1;
     while (getline(file, line)) {
 
+    
 
+    int counter = 1;
     vector<string> v;
 
     char separator = ' ';
@@ -38,13 +43,13 @@ void Machine::fileHandler(string fileName) {
     v.push_back(copy);
 
 
-    int orderNumer = hexToDecimal(v[0]);
-    int cell1 = hexToDecimal(v[1]);
+
     int cell2 = hexToDecimal(v[2]);
 
 
-
-
+    // write_command(order number, instruction code, Register 1, Register 2);
+    ram->write_command(counter, hexToDecimal(v[0]), hexToDecimal(v[1]), hexToDecimal(v[2]));
+    counter += 2;
 
     }  
 

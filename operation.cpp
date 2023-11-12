@@ -59,10 +59,50 @@ void jump(unsigned char R_value, short int ST_value,short int the_itoretor_of_op
 }
 '''
 */
-Operation::Operation(int in_put)
+Operation::Operation(int in_put,Memory *Ram,Memory *Reg)
 {
+    this->ram = Ram;
+    this->reg = Reg;
+
     this->order = (in_put >> 12) & 0x000f;
     this->R_Value = ((in_put << 4)>>12) & 0x000f;
     this->S_Value = ((in_put << 8)>>12) & 0x000f;
     this->T_Value = ((in_put << 12)>>12) & 0x000f;
+}
+
+int Operation:: do_Operation()
+{
+    switch (order)
+    {
+    case 1:
+        Register_load_memory(R_Value, (short int) (S_Value* 16 +T_Value) ,ram,reg);
+        break;
+    case 2:
+        /* code */
+        break;
+    case 3:
+        /* code */
+        break;
+    case 4:
+        /* code */
+        break;
+    case 5:
+        /* code */
+        break;
+    case 6:
+        /* code */
+        break;
+    case 11:
+        /* code */
+        break;
+    case 12:
+        /* code */
+        break;
+    case 0:
+        /* code */
+        break;
+    
+    default:
+        break;
+    }
 }

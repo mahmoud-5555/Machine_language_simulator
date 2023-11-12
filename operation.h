@@ -12,6 +12,8 @@ using namespace std;
 class Operation
 {
 	private:
+		Memory *ram = NULL;
+		Memory *reg = NULL; 
 		unsigned char order;
 		unsigned char R_Value;
 		unsigned char S_Value;
@@ -27,7 +29,7 @@ class Operation
 		void exit_op();
 	public:
 		Operation();
-		Operation(int in_put);
+		Operation(int in_put, Memory *Ram,Memory *Reg);
 		int do_Operation();
 
 };

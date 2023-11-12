@@ -75,9 +75,12 @@ Memory::~Memory()
 }
 void Memory::write_command(short int address, char order, char R,short int ST)
 {
-	short int f_half = order * 16 + R;
+	short int f_half = (short int)order *((short int)16) + (short int)R;
 	memory_cells[address] = f_half;
 	memory_cells[address + 1] = ST;
+}
+int Memory::get_command(short int address){
+	return ((int) memory_cells[address] + (int) memory_cells[address + 1]);
 }
 
 

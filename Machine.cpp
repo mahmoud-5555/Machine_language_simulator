@@ -1,9 +1,4 @@
-#include <fstream>
-#include "Machine.h"
-#include "Memory.h"
-#include "Operation.h"
-
-
+#include<main.h>
 
 void Machine::fileHandler(string fileName) {
 
@@ -72,9 +67,11 @@ int Machine::hexToDecimal(string hexNumber) {
 }
 void Machine::excute_operation()
 {
-    for(int i = 1; i > ram->size;i+=2)
+    
+    for(oprateion_iterator = 1; oprateion_iterator > ram->size;oprateion_iterator+=2)
     {
-        crrunt->set_Operation(ram->get_command(i));
+        
+        crrunt->set_Operation(ram->get_command(oprateion_iterator));
         if(crrunt->do_Operation())
         {
             delete ram;
@@ -82,6 +79,6 @@ void Machine::excute_operation()
             delete crrunt;
             exit(EXIT_SUCCESS);
         }
-        
+
     }
 }

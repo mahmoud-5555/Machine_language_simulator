@@ -1,4 +1,4 @@
-#include "operation.h"
+#include "Operation.h"
 
 Operation::Operation()
 {
@@ -58,7 +58,9 @@ int Operation::exit_op() {
 //jump to the command
 void Operation::jump()
 {
-    if(reg->read_memory(0) == reg->read_memory(0))    
+    short int ST_value = (short int) S_Value* 16 + (short int) T_Value;
+    if(reg->read_memory(0) == reg->read_memory(R_Value))
+        oprateion_iterator  = ST_value;
 }
 
 Operation::Operation(int in_put,Memory *Ram,Memory *Reg)

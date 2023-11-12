@@ -1,8 +1,7 @@
 #ifndef OPERATION_H
 #define OPERATION_H
 
-#include <stdexcept>
-#include "Memory.h"
+#include "main.h"
 
 using namespace std;
 /**

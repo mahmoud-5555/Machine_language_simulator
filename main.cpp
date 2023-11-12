@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Machine.h"
+#include "main.h"
 
 using namespace std;
 

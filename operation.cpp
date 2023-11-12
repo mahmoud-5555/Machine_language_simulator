@@ -37,7 +37,16 @@ void Operation::add_two_s_complement(unsigned char R_value, unsigned char S_valu
     reg.write_memory(R_Value, num1 + num2);
 }
 //jump to the command
+'''
 void jump(unsigned char R_value, short int ST_value,short int the_itoretor_of_operarion,memory &reg)
 {
     
+}
+'''
+Operation::Operation(int in_put)
+{
+    this->order = (in_put >> 12) & 0x000f;
+    this->R_Value = ((in_put << 4)>>12) & 0x000f;
+    this->S_Value = ((in_put << 8)>>12) & 0x000f;
+    this->T_Value = ((in_put << 12)>>12) & 0x000f;
 }

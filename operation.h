@@ -20,11 +20,10 @@ class Operation
 		void store_memory(unsigned char R_Value, short int  ST_value);//store what in the Register in the "RAM_Call"
 		void move_to_another_Register(unsigned char S_Value, unsigned char T_value);// move the value in Register "S_Value" to T_value
 		void add_two_s_complement(unsigned char R_Value, unsigned char S_Value ,unsigned char T_value, memory &ram);// add 'S'and 'T' load in 'R'
-		
-		void jumbls();
+		void jump(unsigned char R_value, short int ST_value);
 		void exit_op();
 	public:
-		Operation(); 
+		Operation();
 		Operation(int in_put);
 		char do_Operation();
 

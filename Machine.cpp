@@ -10,9 +10,8 @@ void Machine::fileHandler(string fileName) {
 
     string line;
     int lineNumber = 1;
+    file.open(fileName);
     while (getline(file, line)) {
-
-    
 
     int counter = 1;
     vector<string> v;
@@ -68,7 +67,7 @@ int Machine::hexToDecimal(string hexNumber) {
 void Machine::excute_operation()
 {
     
-    for(oprateion_iterator = 1; oprateion_iterator > ram->size;oprateion_iterator+=2)
+    for(oprateion_iterator = 1; oprateion_iterator < ram->size; oprateion_iterator+=2)
     {
         
         crrunt->set_Operation(ram->get_command(oprateion_iterator));

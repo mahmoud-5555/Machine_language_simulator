@@ -19,7 +19,7 @@ using namespace std;
 class Memory{
 	private:
 		int size;
-		short int  *memory_calls;
+		short int  *memory_cells;
 		vector <string> memory_errors;
 		static unsigned long long status;
 
@@ -27,6 +27,7 @@ class Memory{
 		Memory();
 		Memory(char type_of_memory);
 		short int read_memory(short int call_address);
+		void delete_value(short int address); // delete value in address 
 		bool write_memory(short int call_address, short int value);
 		int get_command(short int address);//the order
 		void write_command(short int address, char order, char R,short int ST);

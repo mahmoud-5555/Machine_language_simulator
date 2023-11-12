@@ -18,10 +18,16 @@ void Operation::Register_load_value(unsigned char R_Value, short int  ST_value, 
     reg.write_memory(R_Value, ram.read_memory(ST_value)); 
 }
 
+void Operation::move_to_another_Register(unsigned char R_Value, short int  ST_value, memory &ram) {
+
+    
+
+}
+
 void Operation::add_two_s_complement(unsigned char R_Value, unsigned char S_Value ,unsigned char T_value, memory &ram) {
 
     unsigned char num1 = ram.read_memory(R_Value);
     unsigned char num2 = ram.read_memory(S_Value);
-    
+    ram.write_memory(num1 + num2, ram.read_memory(T_value));
 
 }

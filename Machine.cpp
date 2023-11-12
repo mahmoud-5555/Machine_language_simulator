@@ -1,7 +1,7 @@
 #include <fstream>
 #include "Machine.h"
-#include "memory.h"
-#include "operation.h"
+#include "Memory.h"
+#include "Operation.h"
 
 
 
@@ -48,7 +48,7 @@ void Machine::fileHandler(string fileName) {
 
 
     // write_command(order number, instruction code, Register 1, Register 2);
-    memory_ram.write_command(counter, hexToDecimal(v[0]), hexToDecimal(v[1]), hexToDecimal(v[2]));
+    ram->write_command(counter, hexToDecimal(v[0]), hexToDecimal(v[1]), hexToDecimal(v[2]));
     counter += 2;
 
     }  

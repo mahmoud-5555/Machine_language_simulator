@@ -4,12 +4,13 @@
  * first: no args the size will be 256(defult)
  * sacend: with spcfie the size 
  */
-memory :: memory()
+Memory::Memory()
 {
 	size = 256;
 	memory_calls = new short int[size];
 }
-memory:: memory(char type_of_memory)
+
+Memory:: Memory(char type_of_memory)
 {
 	if(type_of_memory == 'R')
 	{
@@ -22,7 +23,8 @@ memory:: memory(char type_of_memory)
 		memory_calls = new short int[size];
 	}
 }
-short int memory::read_memory(short int call_address)
+
+short int Memory::read_memory(short int call_address)
 {
 	status++;
 	//check if address in the boundary of the memory
@@ -39,7 +41,7 @@ short int memory::read_memory(short int call_address)
 				memory_errors.push_back("$ Rojester : reading memory error status: " + error_status);
 		}
 }
-bool memory::write_memory(short int call_address, short int value)
+bool Memory::write_memory(short int call_address, short int value)
 {
 	status++;
 	if(call_address > 0 && call_address < this ->size)
@@ -59,11 +61,11 @@ bool memory::write_memory(short int call_address, short int value)
 /**
  * ~memory - destructer to free the located memory "in the heap" 
 */
-memory::~memory()
+Memory::~Memory()
 {
 	delete memory_calls;
 }
-void memory::write_command(short int address, char order, char R,short int ST)
+void Memory::write_command(short int address, char order, char R,short int ST)
 {
 	short int f_half = order * 16 + R;
 	memory_calls[address] = f_half;

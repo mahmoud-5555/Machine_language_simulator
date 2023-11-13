@@ -1,4 +1,4 @@
-#include<main.h>
+#include"main.h"
 
 void Machine::fileHandler(string fileName) {
 
@@ -46,7 +46,7 @@ void Machine::fileHandler(string fileName) {
     counter += 2;
 
     }  
-
+    file.close();
 
 }
 

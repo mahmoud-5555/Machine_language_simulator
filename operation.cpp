@@ -10,17 +10,17 @@ Operation::Operation()
 
 
 void Operation::Register_load_memory() {
-    short int ST_value = (short int) S_Value* 16 + (short int) T_Value;
+    short ST_value = (short) S_Value* 16 + (short) T_Value;
     reg->write_memory(R_Value, ram->read_memory(ST_value)); 
 }
 
 void Operation::Register_load_value() {
-    short int ST_value = (short int) S_Value* 16 + (short int) T_Value;
+    short ST_value = (short) S_Value* 16 + (short) T_Value;
     reg->write_memory(R_Value, ST_value); 
 }
 
 void Operation::move_to_another_Register() {
-    short int ST_value = (short int) S_Value* 16 + (short int) T_Value;
+    short ST_value = (short) S_Value* 16 + (short) T_Value;
     reg->write_memory(ST_value, reg->read_memory(R_Value));
     reg->delete_value(R_Value);
 
@@ -28,7 +28,7 @@ void Operation::move_to_another_Register() {
 
 
 void Operation::store_memory() {
-    short int ST_value = (short int) S_Value* 16 + (short int) T_Value;
+    short ST_value = (short) S_Value* 16 + (short) T_Value;
     if (ST_value == 0) {
         cout << R_Value;
         return;
@@ -46,7 +46,7 @@ void Operation::store_memory() {
 void Operation::add_two_s_complement() {
     unsigned char num1 = reg->read_memory(S_Value);
     unsigned char num2 = reg->read_memory(T_Value);
-    reg->write_memory(R_Value, num1 + num2);
+    reg->write_memory(R_Value,(short) num1 + (short) num2);
 }
 
 
@@ -58,12 +58,12 @@ int Operation::exit_op() {
 //jump to the command
 void Operation::jump()
 {
-    short int ST_value = (short int) S_Value* 16 + (short int) T_Value;
+    short ST_value = (short) S_Value* 16 + (short) T_Value;
     if(reg->read_memory(0) == reg->read_memory(R_Value))
         oprateion_iterator  = ST_value;
 }
 
-Operation::Operation(int in_put,Memory *Ram,Memory *Reg)
+Operation::Operation(short in_put,Memory *Ram,Memory *Reg)
 {
     this->ram = Ram;
     this->reg = Reg;
@@ -74,7 +74,7 @@ Operation::Operation(int in_put,Memory *Ram,Memory *Reg)
     this->T_Value = ((in_put << 12)>>12) & 0x000f;
 }
 
-void Operation::set_Operation(int in_put)
+void Operation::set_Operation(short in_put)
 {
     this->order = (in_put >> 12) & 0x000f;
     this->R_Value = ((in_put << 4)>>12) & 0x000f;

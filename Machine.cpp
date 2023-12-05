@@ -1,18 +1,11 @@
 #include"main.h"
 
-void Machine::fileHandler(string fileName) {
-
-    // memory ram;
-    // memory reg('R');
-
-    fileName.append(".txt");
-    ifstream file(fileName);
+void Machine::fileHandler(ifstream& file) {
 
     string line;
-    int lineNumber = 1;
-    file.open(fileName);
     while (getline(file, line)) {
-
+    
+    
     int counter = 1;
     vector<string> v;
 
@@ -21,7 +14,9 @@ void Machine::fileHandler(string fileName) {
     // store every string chars in copy string
     string copy;
     
+    
     for (int i = 0; i < line.size(); i++) {
+
         // if char in str is " " then push back to vector as one string and clear it
         if (line[i] == separator) {
             v.push_back(copy);
@@ -36,12 +31,6 @@ void Machine::fileHandler(string fileName) {
     // Push the last word into the vector (it may not end with a space)
     v.push_back(copy);
 
-
-
-    int cell2 = hexToDecimal(v[2]);
-
-
-    // write_command(order number, instruction code, Register 1, Register 2);
     ram->write_command(counter, hexToDecimal(v[0]), hexToDecimal(v[1]), hexToDecimal(v[2]));
     counter += 2;
 
@@ -49,6 +38,7 @@ void Machine::fileHandler(string fileName) {
     file.close();
 
 }
+
 
 
 int Machine::hexToDecimal(string hexNumber) {
@@ -64,13 +54,33 @@ int Machine::hexToDecimal(string hexNumber) {
 
 
 }
+void Machine :: print_the_Screan()
+{
+    for (short i = 0; i < 256; i += 32)
+    {
+        //cout << hex << reg->read_memory(i/16) << " | ";
+        printf("%x | ",reg->read_memory((short)i/16));
+        for(short j = i; j < (i + 32); j += 2)
+        {
+            if(j < i + 30)
+                cout << hex << ram->read_memory(j) << ' ';    
+            else
+                cout << hex << ram->read_memory(j) << endl;
+        }
+    }
+    cout<<"___________________________________\n";
+}
+
 void Machine::excute_operation()
 {
-    
-    for(oprateion_iterator = 1; oprateion_iterator < ram->size; oprateion_iterator+=2)
+    //system ("CLS");
+    //print_the_Screan();
+    for(oprateion_iterator = 0; oprateion_iterator < ram->size; oprateion_iterator+=2)
     {
-        
+        //system ("CLS");
         crrunt->set_Operation(ram->get_command(oprateion_iterator));
+        print_the_Screan();
+        //Sleep(1000);
         if(crrunt->do_Operation())
         {
             delete ram;
@@ -78,6 +88,9 @@ void Machine::excute_operation()
             delete crrunt;
             exit(EXIT_SUCCESS);
         }
+        
+         
+        
 
     }
 }
